@@ -25,6 +25,9 @@ if (isset($_POST['description'])) {
 if (!isset($_FILES)) {
     $_SESSION['error'] = "Veuillez renseigner l'image ou la vidéo à poster.<br/>";
 }
+if ($_FILES['file']['size'] > 5000000) {
+    $_SESSION['error'] = "Le fichier est trop volumineux.<br/>";
+}
 if (!isset($title) OR !preg_match("/[\w]{3,}/", $title)) {
     $_SESSION['error'] = "Le titre doit contenir minimum 3 caractères.<br/>";
 }
@@ -79,8 +82,34 @@ $type = $_FILES['file']['type'];
 /**** Vérification type fichier ****/
 /** */
 if ($type === strpos($type, 'image')) {
-    // creation minia
-    // $url_minia;
+    // imagethumb( $image_src , $image_dest = NULL , $max_size = 100, $expand = FALSE, $square = FALSE );
+    $extension = "." . $fileextension;
+    switch ($extension) {
+        case '.jpeg':$source = imagecreatefromjpeg($url); 
+        break;
+        case '.jpg': $source = imagecreatefromjpeg($url); 
+        break;
+        case '.png': $source = imagecreatefrompng($url); 
+        break;
+        case '.gif': $source = imagecreatefromgif($url); 
+        break;
+        default : $_SESSION['error'] = 'Type de fichier non pris en charge.<br/>';
+        die();             
+    }
+     
+    $destination = imagecreatetruecolor(180, 150); // On crée la miniature vide
+     
+    // Les fonctions imagesx et imagesy renvoient la largeur et la hauteur d'une image
+    $largeur_source = imagesx($source);
+    $hauteur_source = imagesy($source);
+    $largeur_destination = imagesx($destination);
+    $hauteur_destination = imagesy($destination);
+     
+    // On crée la miniature
+    imagecopyresampled($destination, $source, 0, 0, 0, 0, $largeur_destination, $hauteur_destination, $largeur_source, $hauteur_source);
+     
+    // On enregistre la miniature sous le nom " "
+    imagejpeg($destination, $url.'miniatures/');
     // $minia_title;
     // $url_minia;
     // $minia_type;
@@ -122,5 +151,5 @@ catch(Exception $e) {
 $_SESSION['success'] = "Fichier enregistré avec succès.<br/>";
 header('Location: ../Vue/vue_post.php');
 
-//--------------------------------------ne pas oublier de gérer la taille max et la suppression des fichiers et les miniatures et l'avatar---------------------------------------------------
+//--------------------------------------ne pas oublier de la suppression des fichiers et l'avatar---------------------------------------------------
 //--------------------------------------et bien commenter pour dimanche-----------------------------------------------------------------------

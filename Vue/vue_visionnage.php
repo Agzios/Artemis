@@ -114,7 +114,7 @@
                     $media = substr($url, $position + 1);
 
                     try {
-                        $verif = $database->prepare("SELECT type_post, title, description FROM post WHERE url_post = :url");
+                        $verif = $database->prepare("SELECT type_post, title, description, view_post FROM post WHERE url_post = :url");
                         $verif->execute(array(':url'=>$media));
                         $infos = $verif->fetchAll(PDO::FETCH_ASSOC);
                     }
@@ -123,7 +123,6 @@
                         echo 'Numéro : '.$e->getCode();
                         exit();
                     }
-
 
                     if (isset($infos)) {
                         $typeMime = $infos[0]['type_post'];
@@ -134,7 +133,7 @@
                     // Si dans le typeMime il y a 'image' alors
                     if (isset($typeMime) && strpos($typeMime, 'image') !== false) {
                         echo 
-                        "<img src=".$media." width='500' height='auto'>";
+                        "<img src=".$media." width='500' height='auto'/>";
                     }
                     // Si dans le typeMime il y a 'video' alors
                     if (isset($typeMime) && strpos($typeMime, 'video') !== false) {
@@ -142,6 +141,20 @@
                         '<video preload="auto" autoplay loop controls width="500">
                             <source src='.$media.' type='.$typeMime.'>
                         </video>';
+                    }
+
+                    $view = ($infos[0]['view_post'] + 1);
+                    
+                    try {
+                        $verif = $database->prepare("INSERT INTO `post` (view_post) VALUES (:view)");
+                        $verif->execute(array(':view'=>$view));
+                        $infos = $verif->fetchAll(PDO::FETCH_ASSOC);
+                        
+                    }
+                    catch(Exception $e) {
+                        echo 'Erreur : '.$e->getMessage().'</br>';
+                        echo 'Numéro : '.$e->getCode();
+                        exit();
                     }
                 ?> 
 

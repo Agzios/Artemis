@@ -6,7 +6,7 @@ require_once('../Model/pdo.php');
 /**** Selection depuis la BDD ****/
 /** */
 try {
-    $verif = $database->prepare("SELECT url_post, title, pseudo, date_post FROM post INNER JOIN utilisateur on post.id_users = utilisateur.id_users WHERE status_post != 'private'");
+    $verif = $database->prepare("SELECT url_post, title, pseudo, date_post, type_post FROM post INNER JOIN utilisateur on post.id_users = utilisateur.id_users WHERE status_post != 'private' AND status_post != 'deleted' ORDER BY date_post DESC");
     $verif->execute(array());
     $data = $verif->fetchAll(PDO::FETCH_ASSOC);
 }

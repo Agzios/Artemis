@@ -20,22 +20,14 @@ CREATE TABLE `utilisateur` (
 CREATE TABLE `post` (
 	`id_post` INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	`id_users` INT UNSIGNED NOT NULL,
-	`id_minia` INT UNSIGNED NOT NULL,
 	`url_post` varchar(255) NOT NULL,
 	`title` varchar(100) NOT NULL,
 	`type_post` varchar(255) NOT NULL,
 	`date_post` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`description` varchar(255),
+	`view_post` INT UNSIGNED NOT NULL,
 	`status_post` varchar(255) NOT NULL DEFAULT 'private',
 	PRIMARY KEY (`id_post`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `minia` (
-	`id_minia` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-	`id_post` INT UNSIGNED NOT NULL,
-	`url_minia` varchar(255) NOT NULL,
-	`type_minia` varchar(255) NOT NULL,
-	PRIMARY KEY (`id_minia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `like` (
@@ -64,5 +56,3 @@ ALTER TABLE `like` ADD CONSTRAINT `Like_fk2` FOREIGN KEY (`id_users`) REFERENCES
 ALTER TABLE `comm` ADD CONSTRAINT `Comm_fk0` FOREIGN KEY (`id_users_creator`) REFERENCES `post`(`id_users`);
 
 ALTER TABLE `comm` ADD CONSTRAINT `Comm_fk1` FOREIGN KEY (`id_users`) REFERENCES `utilisateur`(`id_users`);
-
-ALTER TABLE `minia` ADD CONSTRAINT `Minia_fk0` FOREIGN KEY (`id_post`) REFERENCES `post`(`id_post`);
