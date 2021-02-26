@@ -4,6 +4,18 @@
     box-sizing: border-box;
     text-decoration: none;
 }
+@font-face {
+    font-family: 'algerian';
+    src: url('./Algeria-mZ9.ttf');
+}
+
+#artemis{
+    font-family: 'algerian', sans-serif;
+    text-align: center;
+    font-weight: 600;
+    font-size: 200% ;
+}
+
 body{
     background:linear-gradient(135deg, #176EE6  , #17E67C);
     background-repeat: no-repeat;
@@ -38,27 +50,44 @@ body{
 
 .formulaire{
     background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 8px;
-    border: none;
+    border-radius: 10px;
+    border: solid 3px #17E67C;
+
     color: grey;
-    margin-top: 1em;
-    line-height: 20px;
+    margin-top: 1.5em;
+    line-height: 40px;
+    
+}
+
+input{
+    text-align: center;
 }
 
 #Ins{
-    border: solid 1px turquoise;
+    border: none;
     cursor: pointer;
+    margin-top: 100px;
+
 }
 
 #Ins:hover{
     background: linear-gradient(135deg, #176EE6  , #17E67C);
-    color: aliceblue; 
+    color: white; 
+}
+
+#over{
+    border: none;
+    width: 80%;
+    align-self: center;
 }
 
 #over:hover{
-    background: linear-gradient(135deg, #176EE6  , #17E67C);
-    color: aliceblue; 
+    background: linear-gradient(135deg, #176EE6  , #17E67C); 
+    color: white; 
+
 }
+
+
 
 #connexion{
     justify-content: center;
@@ -74,6 +103,7 @@ form{
     height: 200px;
     width: 200px;
 }
+
 
 #margLogo{
     margin: 0 150px;
@@ -102,5 +132,3 @@ form{
         flex-wrap: wrap;
     }
 }
-
-

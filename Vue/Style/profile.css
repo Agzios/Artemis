@@ -4,6 +4,15 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'algerian';
+    src: url('./Algerian.ttf');
+}
+
+h1 {
+    font-family: algerian;
+}
+
 .AllButFooter {
     min-height: calc(100vh - 220px);
 }

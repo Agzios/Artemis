@@ -118,7 +118,7 @@
                             <figure id='containProfilAvatar'>
                                 <img id='iconProfilAvatar' src='../Composant/utilisateur.png' alt='Logo User' />
                             </figure>
-                            <p id='pseudoAvatar'>Pseudo</p>
+                            <p id='pseudoAvatar'><?php echo $_SESSION['user']['pseudo']; ?></p>
                         </div>
                         <a id='aParams' href='./vue_params.php'>
                             <figure id='containParams'>

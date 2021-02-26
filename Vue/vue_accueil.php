@@ -109,16 +109,16 @@
                 <?php  
                     require("../Model/model_accueil.php");
                     // var_dump($data);
-                    for ($i=0; $i<8; $i++) {
+                    for ($i=0; $i<$dataSize; $i++) {
                     echo 
                     '<section>
                         <article>Content</article>
-                        <p class="title"><strong>Titre</strong></p>
-                        <p class="name">Utilisateur</p>
+                        <p class="title"><strong>'.$data[$i]["title"].'</strong></p>
+                        <p class="name">'.$data[$i]["pseudo"].'</p>
                         <div class="vueDate">
                             <p class="view">Vues</p>
                             <p class="separation">-</p>
-                            <p class="date">Date</p>
+                            <p class="date">'.$data[$i]["date_post"].'</p>
                         </div>
                     </section>';
                     }

@@ -21,7 +21,7 @@
 
         <div>
             <main id="card">
-                <form action="Model/inscription.php" method="POST">
+                <form action="../Model/model_inscription.php" method="POST">
                     <label for="pseudo"></label>
                     <input class="formulaire" type="text" id="pseudo" name="pseudo" placeholder="pseudo" required>
                     <br/>

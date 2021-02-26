@@ -134,7 +134,7 @@
                     </div>
                     <section>
                         <form action="../Model/model_params_removeUser.php" method="POST">
-                            <h1>Supprimer mon compte</h1>
+                            <h2>Supprimer mon compte</h2>
                             <br>
                             <label for="pseudo">Pseudo:</label>
                             <input id="pseudo" type="text" name="pseudo" placeholder="Pseudo"/>
