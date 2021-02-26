@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artemis</title>
-    <link rel="stylesheet" href="./Style/accueil.css">
+    <link rel="stylesheet" href="./Style/visionnage.css">
     <link rel="shortcut icon" href="../Composant/logo_CLASSIQUE_Sans_Fond.ico" type="image/x-icon">
 </head>
 
@@ -134,19 +134,21 @@
                     // Si dans le typeMime il y a 'image' alors
                     if (isset($typeMime) && strpos($typeMime, 'image') !== false) {
                         echo 
-                        "<img src=".$media." width='500' height='auto'";
+                        "<img src=".$media." width='500' height='auto'>";
                     }
                     // Si dans le typeMime il y a 'video' alors
                     if (isset($typeMime) && strpos($typeMime, 'video') !== false) {
                         echo 
-                        '<video preload="auto" autoplay loop controls width="500" >
+                        '<video preload="auto" autoplay loop controls width="500">
                             <source src='.$media.' type='.$typeMime.'>
                         </video>';
                     }
                 ?> 
 
-                <h2><?php echo $infos[0]['title'] ?></h2>
-                <p><?php echo $infos[0]['description'] ?></p>
+                <section>
+                    <h2 id="title"><?php echo $infos[0]['title'] ?></h2>
+                    <p id="description"><?php echo $infos[0]['description'] ?></p>
+                </section>
             </main>
         </div>
     </body>
