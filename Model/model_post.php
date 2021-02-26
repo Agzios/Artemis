@@ -59,14 +59,14 @@ $moveFile = move_uploaded_file($pathAndNameTemp, $pathAndNameDef);
 
 var_dump($fileextension);
 
-if (($fileextension !== "mp4") && ($fileextension !== "mpeg") && ($fileextension !== "avi") && ($fileextension !== "ogv") && ($fileextension !== "jpg") && ($fileextension !== "jpeg") && ($fileextension !== "png") && ($fileextension !== "svg")) {
-    $_SESSION['error'] = "L'extension du fichier n'est pas compatible, veuillez en changer (.mp4, .mpeg, .avi, .ogv, .jpg, .jpeg, .png, .svg).";
+if (($fileextension !== "mp4") && ($fileextension !== "mpeg") && ($fileextension !== "webm") && ($fileextension !== "ogv") && ($fileextension !== "ogg") && ($fileextension !== "jpg") && ($fileextension !== "jpeg") && ($fileextension !== "png") && ($fileextension !== "svg")) {
+    $_SESSION['error'] = "L'extension du fichier n'est pas compatible, veuillez en changer (.mp4, .mpeg, .webm, .ogv, .ogg, .jpg, .jpeg, .png, .svg).";
 }
 if (isset($_SESSION['error'])) {
     header('Location: ../Vue/vue_post.php');
 }
         
-if (($fileextension == "mp4") || ($fileextension == "mpeg") || ($fileextension == "avi") || ($fileextension == "ogv") || ($fileextension == "jpg") || ($fileextension == "jpeg") || ($fileextension == "png") || ($fileextension == "svg")) {
+if (($fileextension == "mp4") || ($fileextension == "mpeg") || ($fileextension == "webm") || ($fileextension == "ogv") || ($fileextension == "ogg") || ($fileextension == "jpg") || ($fileextension == "jpeg") || ($fileextension == "png") || ($fileextension == "svg")) {
     if (move_uploaded_file($tmp_name, $path.$name)) {
         $_SESSION['success'] = "Uploaded";
     }

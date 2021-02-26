@@ -111,16 +111,18 @@
                     // var_dump($data);
                     for ($i=0; $i<$dataSize; $i++) {
                     echo 
-                    '<section>
-                        <article>Content</article>
-                        <p class="title"><strong>'.$data[$i]["title"].'</strong></p>
-                        <p class="name">'.$data[$i]["pseudo"].'</p>
-                        <div class="vueDate">
-                            <p class="view">Vues</p>
-                            <p class="separation">-</p>
-                            <p class="date">'.$data[$i]["date_post"].'</p>
-                        </div>
-                    </section>';
+                        '<section>
+                            <a href="./vue_visionnage?url='.$data[$i]["url_post"].'">
+                                <article>Content</article>
+                            </a>
+                            <p class="title"><strong>'.$data[$i]["title"].'</strong></p>
+                            <p class="name">'.$data[$i]["pseudo"].'</p>
+                            <div class="vueDate">
+                                <p class="view">Vues</p>
+                                <p class="separation">-</p>
+                                <p class="date">'.$data[$i]["date_post"].'</p>
+                            </div>
+                        </section>';
                     }
                 ?>
             </main>
