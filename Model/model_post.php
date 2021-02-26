@@ -151,5 +151,5 @@ catch(Exception $e) {
 $_SESSION['success'] = "Fichier enregistré avec succès.<br/>";
 header('Location: ../Vue/vue_post.php');
 
-//--------------------------------------ne pas oublier de la suppression des fichiers et l'avatar---------------------------------------------------
+//--------------------------------------ne pas oublier de la suppression des fichiers les views et l'avatar---------------------------------------------------
 //--------------------------------------et bien commenter pour dimanche-----------------------------------------------------------------------
