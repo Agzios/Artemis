@@ -57,8 +57,6 @@ $pathAndNameDef = '../upload/' . $name . "." . $fileextension;
 // On deplace le media du fichier temp vers le definitif
 $moveFile = move_uploaded_file($pathAndNameTemp, $pathAndNameDef);
 
-var_dump($fileextension);
-
 if (($fileextension !== "mp4") && ($fileextension !== "mpeg") && ($fileextension !== "webm") && ($fileextension !== "ogv") && ($fileextension !== "ogg") && ($fileextension !== "jpg") && ($fileextension !== "jpeg") && ($fileextension !== "png") && ($fileextension !== "svg")) {
     $_SESSION['error'] = "L'extension du fichier n'est pas compatible, veuillez en changer (.mp4, .mpeg, .webm, .ogv, .ogg, .jpg, .jpeg, .png, .svg).";
 }

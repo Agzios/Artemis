@@ -107,15 +107,46 @@
             <!-- Medias -->
             <main>
                 <?php 
+                    require_once('../Model/pdo.php');
 
-                ?>
-                <?php $img = "../upload/4b95aea07395c040f1ba8a03d693b6b5bd9385a5.jpeg"; ?>
-                <img src= <?php echo $img ?> />; 
+                    $url = ($_SERVER['REQUEST_URI']);
+                    $position = strpos($url, "=");
+                    $media = substr($url, $position + 1);
 
-                <?php $video= "../upload/f2828c3201ae9d136c83e35893fcb3f981d743b4.mp4"; ?>
-                <video preload="auto" autoplay loop controls width="500" >
-                    <source src=<?php echo $video ?> type="video/mp4">
-                </video> 
+                    try {
+                        $verif = $database->prepare("SELECT type_post, title, description FROM post WHERE url_post = :url");
+                        $verif->execute(array(':url'=>$media));
+                        $infos = $verif->fetchAll(PDO::FETCH_ASSOC);
+                    }
+                    catch(Exception $e) {
+                        echo 'Erreur : '.$e->getMessage().'</br>';
+                        echo 'Numéro : '.$e->getCode();
+                        exit();
+                    }
+
+
+                    if (isset($infos)) {
+                        $typeMime = $infos[0]['type_post'];
+                        $ext = pathinfo($media);
+                        //echo $ext['extension'];
+                    }
+
+                    // Si dans le typeMime il y a 'image' alors
+                    if (isset($typeMime) && strpos($typeMime, 'image') !== false) {
+                        echo 
+                        "<img src=".$media." width='500' height='auto'";
+                    }
+                    // Si dans le typeMime il y a 'video' alors
+                    if (isset($typeMime) && strpos($typeMime, 'video') !== false) {
+                        echo 
+                        '<video preload="auto" autoplay loop controls width="500" >
+                            <source src='.$media.' type='.$typeMime.'>
+                        </video>';
+                    }
+                ?> 
+
+                <h2><?php echo $infos[0]['title'] ?></h2>
+                <p><?php echo $infos[0]['description'] ?></p>
             </main>
         </div>
     </body>

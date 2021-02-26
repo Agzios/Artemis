@@ -159,6 +159,7 @@
                             // alors on affiche un message
                             echo '<div id="success">' . $_SESSION['success'] . '</div><br/>';
                         }
+                  
                     ?>
                 </div>
             </main>
