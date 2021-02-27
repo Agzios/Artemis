@@ -26,7 +26,7 @@ $verifpassword = $_POST["verif_password"];
 /** */
 /**** Vérification des données entrées par l'utilisateur ****/
 /** */
-if (!isset($pseudo) OR !preg_match("/[\w]{4,}/", $pseudo)) {
+if ((!isset($pseudo) OR !preg_match("/[\w]{4,}/", $pseudo)) && $pseudo !== 'admin' && $pseudo !== 'Admin' && $pseudo !== 'administrator' && $pseudo !== 'Administrator' && $pseudo !== 'administrateur'  && $pseudo !== 'Administrateur' && $pseudo !== 'guest' && $pseudo !== 'Guest' && $pseudo !== 'user' && $pseudo !== 'Invité' && $pseudo !== 'invité' && $pseudo !== 'User' && $pseudo !== 'utilisateur' && $pseudo !== 'Utilisateur') {
   $_SESSION['error'] = "Le pseudo doit contenir minimum 4 caractères alphanumériques uniquement<br/>";
 }
 if (!isset($email) OR !filter_var($email , FILTER_VALIDATE_EMAIL)) {
@@ -59,7 +59,7 @@ if (isset($_SESSION['error'])) {
 /**** Vérification disponibilité pseudo & email ****/
 /** */
 try {
-  $verif = $database->prepare("SELECT pseudo, email FROM utilisateur WHERE utilisateur.email = :email OR utilisateur.pseudo = :pseudo");
+  $verif = $database->prepare("SELECT pseudo, email FROM utilisateur WHERE (utilisateur.email = :email OR utilisateur.pseudo = :pseudo) AND status_user != 'deleted'");
   $verif->execute(array(':email'=>$email, ':pseudo'=>$pseudo));
   $data = $verif->fetchAll(PDO::FETCH_ASSOC);
 }

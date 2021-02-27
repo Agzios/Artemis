@@ -1,6 +1,6 @@
 <?php session_start()?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +17,8 @@
             <a id="logo" href="./vue_accueil.php">
                 <figure id="containLogo">
                     <img  id="logoArtemis" src='../Composant/logo_CLASSIQUE_Sans_Fond.png' alt='Logo Artemis' />
+                    <h1 id="artemis">Artemis</h1> 
+
                 </figure>  
             </a> 
             <div id="search">
@@ -57,7 +59,6 @@
         <div id="asideMain">
             <!-- Naviguation -->
             <aside>   
-                <h1 id="artemis">Artemis</h1> 
                 <figure class="arrete">
                     <img src="../Composant/arrete.png" alt="Arrete"/>
                 </figure>   

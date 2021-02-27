@@ -5,7 +5,7 @@
     } 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,6 +22,7 @@
             <a id="logo" href="./vue_accueil.php">
                 <figure id="containLogo">
                     <img  id="logoArtemis" src='../Composant/logo_CLASSIQUE_Sans_Fond.png' alt='Logo Artemis' />
+                    <h1 id="artemis">Artemis</h1>
                 </figure>  
             </a> 
             <div id="search">
@@ -62,7 +63,7 @@
         <div id="asideMain">
             <!-- Naviguation -->
             <aside>   
-                <h1 id="artemis">Artemis</h1> 
+                 
                 <figure class="arrete">
                     <img src="../Composant/arrete.png" alt="Arrete"/>
                 </figure>   
@@ -134,20 +135,45 @@
                     </div>
                     <div id="medias">
                         <?php  
-                            require("../Model/model_accueil.php");
+                            require("../Model/model_params_mediaUser.php");
                             // var_dump($data);
-                            for ($i=0; $i<11; $i++) {
-                            echo 
-                            '<section>
-                                <article>Content</article>
-                                <p class="title"><strong>Titre</strong></p>
-                                <p class="name">Utilisateur</p>
-                                <div class="vueDate">
-                                    <p class="view">Vues</p>
-                                    <p class="separation">-</p>
-                                    <p class="date">Date</p>
-                                </div>
-                            </section>';
+                            for ($i=0; $i<$dataSize; $i++) {
+                                if (isset($data)) {
+                                    $typeMime = $data[$i]['type_post'];
+                                    //echo $ext['extension'];
+                                }
+                                if (isset($typeMime) && strpos($typeMime, 'image') !== false) {
+                                    echo
+                                    '<section>
+                                        <a href="./vue_visionnage?url='.$data[$i]["url_post"].'">
+                                            <figure>
+                                                <img src='.$data[$i]["url_post"].' width="200" height="auto"/>
+                                            </figure>
+                                        </a>
+                                        <p class="title"><strong>'.$data[$i]["title"].'</strong></p>
+                                        <p class="name">'.$data[$i]["pseudo"].'</p>
+                                        <form action="../Model/model_deleteMedia.php" method="POST">
+                                            <input type="hidden" name="suppr" value="'.$data[$i]['url_post'].'">
+                                            <input class="suppr" type="submit" value="Supprimer">
+                                        </form>
+                                    </section>';
+                                }
+                                if (isset($typeMime) && strpos($typeMime, 'video') !== false) {
+                                echo 
+                                    '<section>
+                                        <a href="./vue_visionnage?url='.$data[$i]["url_post"].'">
+                                            <video width="200" height="auto">
+                                                <source src='.$data[$i]['url_post'].' type='.$typeMime.'>
+                                            </video>
+                                        </a>
+                                        <p class="title"><strong>'.$data[$i]["title"].'</strong></p>
+                                        <p class="name">'.$data[$i]["pseudo"].'</p>
+                                        <form action="../Model/model_deleteMedia.php" method="POST">
+                                            <input type="hidden" name="suppr" value="'.$data[$i]['url_post'].'">
+                                            <input class="suppr" type="submit" value="Supprimer">
+                                        </form>
+                                    </section>';
+                                }
                             }
                         ?>
                         <?php 
@@ -159,9 +185,9 @@
                         // Si la session 'success' existe
                         if (isset($_SESSION['success'])) {
                             // alors on affiche un message
-                            echo '<div id="success">' . $_SESSION['success'] . '</div><br/>';
+                            echo '<div id="success">' . $_SESSION['flash'] . '</div><br/>';
                         }
-                    ?>
+                        ?>
                     </div>
                 </div>
             </main>
@@ -177,3 +203,10 @@
     </footer>
 
 </html>
+
+<?php 
+    // Les messages disparaîssent lorsque la page est actualisée
+    unset($_SESSION['error']);
+    unset($_SESSION['success']);
+    unset($_SESSION['flash']);
+?>

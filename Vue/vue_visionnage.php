@@ -1,6 +1,6 @@
 <?php session_start()?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +17,8 @@
             <a id="logo" href="./vue_accueil.php">
                 <figure id="containLogo">
                     <img  id="logoArtemis" src='../Composant/logo_CLASSIQUE_Sans_Fond.png' alt='Logo Artemis' />
+                    <h1 id="artemis">Artemis</h1> 
+
                 </figure>  
             </a> 
             <div id="search">
@@ -57,7 +59,6 @@
         <div id="asideMain">
             <!-- Naviguation -->
             <aside>   
-                <h1 id="artemis">Artemis</h1> 
                 <figure class="arrete">
                     <img src="../Composant/arrete.png" alt="Arrete"/>
                 </figure>   
@@ -114,7 +115,7 @@
                     $media = substr($url, $position + 1);
 
                     try {
-                        $verif = $database->prepare("SELECT type_post, title, description, url_post, view_post, status_post FROM post WHERE url_post = :url");
+                        $verif = $database->prepare("SELECT type_post, title, description, url_post, view_post, status_post FROM post WHERE url_post = :url AND status_post != 'deleted'");
                         $verif->execute(array(':url'=>$media));
                         $infos = $verif->fetchAll(PDO::FETCH_ASSOC);
                     }
@@ -182,3 +183,10 @@
     </footer>
 
 </html>
+
+<?php 
+    // Les messages disparaîssent lorsque la page est actualisée
+    unset($_SESSION['error']);
+    unset($_SESSION['success']);
+    unset($_SESSION['flash']);
+?>

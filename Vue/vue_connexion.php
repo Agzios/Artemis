@@ -5,7 +5,7 @@
     } 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +17,8 @@
     <div id="all">
         <div id="margLogo">
             <a href="./vue_accueil.php"><img id="logo" src="../Composant/logo_CLASSIQUE_Sans_Fond.png" alt="logo"></a>
+            <h1 id="artemis">Artemis</h1> 
+
         </div>
 
         <main id="card">

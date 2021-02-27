@@ -6,11 +6,11 @@
 }
 @font-face {
     font-family: 'algerian';
-    src: url('./Algeria-mZ9.ttf');
+    src: url('./Algerian.ttf');
 }
 
-#artemis{
-    font-family: 'algerian', sans-serif;
+h1{
+    font-family: algerian, sans-serif;
     text-align: center;
     font-weight: 600;
     font-size: 200% ;
@@ -43,10 +43,11 @@ body{
     display: flex;
     flex-direction: column;
     text-align: center;
+    justify-content: space-evenly;
 }
 
 #card a{
-    margin-top: 3em;
+    margin-top: 30px;
 }
 
 .formulaire{
@@ -69,7 +70,7 @@ input{
 #Ins{
     border: none;
     cursor: pointer;
-    margin-top: 100px;
+    margin-top: 20px;
 
 }
 
@@ -116,7 +117,17 @@ form{
     text-align: center;
 }
 
-@media (min-width: 580px) and (max-width:1025px){
+/*@media (min-width: 580px) and (max-width:1025px){
+    #card{
+        background: none;
+        margin: 0px;        
+    }
+     #all{
+        display: flex;
+        flex-wrap: wrap;
+    } 
+} */
+@media (min-width: 580px) and (max-width:836px){
     #card{
         background: none;
         margin: 0px;        

@@ -8,10 +8,11 @@
     font-family: 'algerian';
     src: url('./Algerian.ttf');
 }
-
-h1 {
+h1{
     font-family: algerian;
+    margin-left: -15px;
 }
+
 
 .AllButFooter {
     min-height: calc(100vh - 220px);
@@ -32,7 +33,7 @@ button:hover {
 }
 
 #asideMain {
-    margin-top: 130px;
+    margin-top: 150px;
     display: flex;
     flex-direction: row;
 }
@@ -41,7 +42,6 @@ button:hover {
 /************ NavBar ************/
 /** */
 header {
-    overflow: hidden;
     position: fixed;
     top: 0;
     width: 100%;
@@ -53,6 +53,7 @@ header {
 
 /*** Logo Artemis ***/
 #logo {
+
     margin-top: 15px;
     margin-left: 40px;
     width: 100px;
@@ -79,6 +80,7 @@ header {
 #searchForm {
     display: flex;
     flex-direction: row;
+    
 }
 
 #searchBar {
@@ -153,8 +155,8 @@ aside {
     position: fixed;
 }
 
-h1 {
-    font-size: 25px;
+aside p{
+    margin-left: 12px;
 }
 
 h1:hover {
@@ -162,21 +164,21 @@ h1:hover {
 }
 
 .arrete img {
-    margin: 15px 0px;
+    margin: 20px 0px 0px 20px;
     width: 50px;
 }
 
 /*** Accueil Icon ***/
 #containAccueil {
-    margin-top: 15px;
-    margin-left: 28px;
+    margin-top: 10px;
+    margin-left: 30px;
     width: 30px;
 }
 
 /*** Tendance Icon ***/
 #containTendance {
     margin-top: 15px;
-    margin-left: 28px;
+    margin-left: 30px;
     width: 30px;
 }
 
@@ -187,7 +189,7 @@ h1:hover {
 /*** Post Icon ***/
 #containPost {
     margin-top: 15px;
-    margin-left: 28px;
+    margin-left: 30px;
     width: 30px;
 }
 
@@ -203,6 +205,28 @@ main {
     margin-top: 30px;
     justify-content: center;
     max-width: 65%;
+} 
+
+.supprimer {
+    padding:5px;
+    background-color: rgb(216, 62, 62);
+    color: white;
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px grey;
+}
+
+.suppr{
+    display: flex;
+    flex-direction: row-reverse;
+
+}
+
+#medias {  
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-left: auto;
 }
 
 .arreteProfil img {
@@ -232,7 +256,11 @@ main {
 #choosenCategory {
     display: flex;
     flex-direction: column;
-    margin: auto;
+    margin-bottom: auto;
+    position: -webkit-stickys;
+    position: sticky;
+    top: 100px;
+
 }
 
 #choosenCategory a {
@@ -283,6 +311,7 @@ article {
 .name {
     font-size: 20px;
     margin-left: 5px;
+    margin-bottom: 10px;
 }
 
 .vueDate {

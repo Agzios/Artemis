@@ -22,7 +22,7 @@ $password = sha1(SALT.$_POST["password"]);
 /**** Selection depuis la BDD ****/
 /** */
 try {
-    $verif = $database->prepare("SELECT id_users, prenom, nom, pseudo, email, mdp, date_creation, url_avatar FROM utilisateur WHERE (utilisateur.email = :username OR utilisateur.pseudo = :username) AND utilisateur.mdp = :pass");
+    $verif = $database->prepare("SELECT id_users, prenom, nom, pseudo, email, mdp, date_creation, url_avatar FROM utilisateur WHERE (utilisateur.email = :username OR utilisateur.pseudo = :username) AND utilisateur.mdp = :pass AND status_user != 'deleted'");
     $verif->execute(array(':username'=>$username , ':pass'=>$password));
     $data = $verif->fetchAll(PDO::FETCH_ASSOC);
 }
