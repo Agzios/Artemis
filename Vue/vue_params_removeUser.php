@@ -134,7 +134,7 @@
                         <a href='../Model/logout.php'>Déconnexion</a>
                     </div>
                     <section>
-                        <form action="../Model/model_params_removeUser.php" method="POST">
+                        <form action="../Model/model_removeUser.php" method="POST">
                             <h2>Supprimer mon compte</h2>
                             <br>
                             <label for="pseudo">Pseudo:</label>
