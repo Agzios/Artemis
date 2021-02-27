@@ -25,8 +25,10 @@ if (isset($_POST['description'])) {
 if (!isset($_FILES)) {
     $_SESSION['error'] = "Veuillez renseigner l'image ou la vidéo à poster.<br/>";
 }
-if ($_FILES['file']['size'] > 5000000) {
-    $_SESSION['error'] = "Le fichier est trop volumineux.<br/>";
+else {
+    if ($_FILES['file']['size'] > 5000000) {
+        $_SESSION['error'] = "Le fichier est trop volumineux.<br/>";
+    }
 }
 if (!isset($title) OR !preg_match("/[\w]{3,}/", $title)) {
     $_SESSION['error'] = "Le titre doit contenir minimum 3 caractères.<br/>";

@@ -175,3 +175,9 @@
     </footer>
 
 </html>
+
+<?php 
+    // Les messages disparaîssent lorsque la page est actualisée
+    unset($_SESSION['error']);
+    unset($_SESSION['success']);
+?>

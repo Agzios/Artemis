@@ -139,16 +139,28 @@
                         </figure>
                         <input id="avatarInput" type="file" name="avatarInput" accept="image/*, video/*"/>
                         <br>
-                        <label for="username">Email:</label>
-                        <input type="text" id="email" name="email" placeholder="nouveau email"/>
+                        <label for="newemail">Email:</label>
+                        <input type="text" id="email" name="newemail" placeholder="nouveau email"/>
                         <br>
-                        <label for="pseudo">Pseudo:</label>
-                        <input id="pseudo" type="text" name="pseudo" placeholder="nouveau pseudo"/>
+                        <label for="newpseudo">Pseudo:</label>
+                        <input id="pseudo" type="text" name="newpseudo" placeholder="nouveau pseudo"/>
                         <br>
                         <input id="modifButton" type="submit" name="Modifier">
                     </form>
                 </section>
                 </div>
+                <?php 
+                    // Si la session 'error' existe
+                    if (isset($_SESSION['error'])) {
+                        // alors on affiche un message
+                        echo '<div id="error">' . $_SESSION['error'] . '</div><br/>';
+                    }
+                    // Si la session 'success' existe
+                    if (isset($_SESSION['success'])) {
+                        // alors on affiche un message
+                        echo '<div id="success">' . $_SESSION['success'] . '</div><br/>';
+                    }
+                ?>
             </main>
         </div>
     </body>
@@ -162,3 +174,9 @@
     </footer>
 
 </html>
+
+<?php 
+    // Les messages disparaîssent lorsque la page est actualisée
+    unset($_SESSION['error']);
+    unset($_SESSION['success']);
+?>

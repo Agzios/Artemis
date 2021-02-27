@@ -107,20 +107,38 @@
             <!-- Medias -->
             <main>
                 <?php  
-                    require("../Model/model_accueil.php");
+                    require("../Model/model_tendance.php");
                     // var_dump($data);
-                    for ($i=0; $i<8; $i++) {
-                    echo 
-                    '<section>
-                        <article>Content</article>
-                        <p class="title"><strong>Titre</strong></p>
-                        <p class="name">Utilisateur</p>
-                        <div class="vueDate">
-                            <p class="view">Vues</p>
-                            <p class="separation">-</p>
-                            <p class="date">Date</p>
-                        </div>
-                    </section>';
+                    for ($i=0; $i<$dataSize; $i++) {
+                        if (isset($data)) {
+                            $typeMime = $data[$i]['type_post'];
+                            //echo $ext['extension'];
+                        }
+                        if (isset($typeMime) && strpos($typeMime, 'image') !== false) {
+                            echo
+                            '<section>
+                            <a href="./vue_visionnage?url='.$data[$i]["url_post"].'">
+                            <figure>
+                                <img src='.$data[$i]["url_post"].' width="200" height="auto"/>
+                                <a href="./vue_delete?url='.$data[$i]["url_post"].'"/>
+                            </figure>
+                            </a>
+                                <p class="title"><strong>'.$data[$i]["title"].'</strong></p>
+                                <p class="name">'.$data[$i]["pseudo"].'</p>
+                            </section>';
+                        }
+                        if (isset($typeMime) && strpos($typeMime, 'video') !== false) {
+                        echo 
+                            '<section>
+                                <a href="./vue_visionnage?url='.$data[$i]["url_post"].'">
+                                <video width="200" height="auto">
+                                    <source src='.$data[$i]['url_post'].' type='.$typeMime.'>
+                                </video>
+                                </a>
+                                <p class="title"><strong>'.$data[$i]["title"].'</strong></p>
+                                <p class="name">'.$data[$i]["pseudo"].'</p>
+                            </section>';
+                        }
                     }
                 ?>
             </main>
