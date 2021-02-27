@@ -36,7 +36,8 @@ body{
     box-sizing: border-box;
     height: 80vh;
     width: 60vh;
-    margin-top: 25px;
+    margin: 0px;
+    margin-top: 5vh;
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.7);
     display: flex;
@@ -52,6 +53,8 @@ body{
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 10px;
     border: solid 3px #17E67C;
+    margin-right: 3vh;
+    height: fit-content;
 
     color: grey;
     margin-top: 1.5em;
@@ -113,9 +116,10 @@ form{
     text-align: center;
 }
 
-@media (min-width: 580px) and (max-width:768px){
+@media (min-width: 580px) and (max-width:1025px){
     #card{
         background: none;
+        margin: 0px;        
     }
     #all{
         display: flex;
@@ -123,9 +127,22 @@ form{
     }
 }
 
-@media (max-width:580px){
+@media (min-width: 300px) and (max-width:580px){
     #card{
         background: none;
+        height: 125vh;
+        width: 45vh;
+    }
+    #all{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+@media (max-width: 375px){
+    #card{
+        background: none;
+        height: 125vh;
+        width: 30vh;
     }
     #all{
         display: flex;

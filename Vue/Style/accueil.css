@@ -45,7 +45,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 130px;
+    height: 180px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -131,16 +131,20 @@ header {
     margin-right: 40px;
     width: 50px;
     height: 50px;
+    min-width: 5px;
+    min-height: 5px;
 }
 
 #containAvatar {
-    width: 100%;
-    height: 100%;
+    min-width: 5px;
+    min-height: 5px;
 }
 
 #userAvatar {
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    min-width: 5px;
+    min-height: 5px;
 }
 
 /** */
@@ -259,4 +263,75 @@ footer>p {
 
 #artemisFooter {
     font-size: 20px;
+}
+
+#asideMain{
+    padding-top: 75px;
+}
+
+
+@media (min-width: 580px) and (max-width:750px){
+    #logo{
+        display: none;  
+    }
+
+    #searchForm{
+        max-width: 50%;
+        margin-left: 10%;
+    }
+    aside {
+        margin-left: 10px;
+        text-align: center;
+    }
+}
+
+@media (min-width: 300px) and (max-width:580px){
+    #logo{
+        display: none;  
+    }
+    aside {
+        margin-left: 10px;
+        text-align: center;
+    }
+    
+    header{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #searchForm{
+        max-width: 50%;
+        margin-left: 10%;
+    }
+    #filter {
+        display: none;
+    }
+
+}
+@media (max-width: 375px){
+    #logo{
+        display: none;  
+    }
+    aside {
+        margin-left: 10px;
+        text-align: center;
+    }
+    header{
+        display: flex;
+        flex-direction: column;
+    }
+    aside{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #searchForm{
+        max-width: 50%;
+        min-width: 150px;
+    }
+    Main{
+        margin-top: 155px;
+    }
+    #filter {
+        display: none;
+    }
 }
