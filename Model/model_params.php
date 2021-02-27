@@ -15,10 +15,14 @@ if (!isset($_POST["newpseudo"]) && !isset($_POST["newemail"])) {
 }
 
 if (isset($_POST["newpseudo"])) {
-  $newpseudo = $_POST["newpseudo"];
+  if ($_POST["newpseudo"] !== '') {
+    $newpseudo = $_POST["newpseudo"];
+  }
 }
 if (isset($_POST["newemail"])) {
-  $newemail = $_POST["newemail"];
+  if ($_POST["newemail"] !== '') {
+    $newemail = $_POST["newemail"];
+  }
 }
 
 /** */
@@ -89,7 +93,6 @@ if (isset($newpseudo)) {
   try {
     $donneesPDO = $database->prepare('UPDATE `utilisateur` SET pseudo = :pseudo WHERE id_users = :id');
     $donneesPDO -> execute(array(':id'=>$_SESSION['user']['id_users'], ':pseudo'=>$newpseudo));
-    exit();
   }
   catch(Exception $e) {
     echo 'Erreur : '.$e->getMessage().'</br>';
@@ -101,7 +104,6 @@ if (isset($newemail)) {
   try {
     $donneesPDO = $database->prepare('UPDATE `utilisateur` SET email = :email WHERE id_users = :id');
     $donneesPDO -> execute(array(':id'=>$_SESSION['user']['id_users'], ':email'=>$newemail));
-    exit();
   }
   catch(Exception $e) {
     echo 'Erreur : '.$e->getMessage().'</br>';
