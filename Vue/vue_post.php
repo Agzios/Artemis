@@ -102,6 +102,7 @@
                 <form action="../Model/model_post.php" method="POST" enctype="multipart/form-data">
                     <div>
                         <!-- <input type="checkbox" name="" id=""> -->
+                     
                         <input id="fichierImporte" type="file" name="file" accept="image/*, video/*" required>
                     </div>
                     <div>

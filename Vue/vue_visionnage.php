@@ -125,50 +125,54 @@
                         exit();
                     }
 
-                    if (isset($infos)) {
+                    if (isset($infos[0])) {
                         $typeMime = $infos[0]['type_post'];
                         $ext = pathinfo($media);
                         //echo $ext['extension'];
-                    }
-
-                    if ($infos[0]['status_post'] !== 'deleted') {
-                        // Si dans le typeMime il y a 'image' alors
-                        if (isset($typeMime) && strpos($typeMime, 'image') !== false) {
+                        if ($infos[0]['status_post'] !== 'deleted') {
+                            // Si dans le typeMime il y a 'image' alors
+                            if (isset($typeMime) && strpos($typeMime, 'image') !== false) {
+                                echo 
+                                "<img src=".$media." width='500' height='300'/>";
+                            }
+                            // Si dans le typeMime il y a 'video' alors
+                            if (isset($typeMime) && strpos($typeMime, 'video') !== false) {
+                                echo 
+                                '<video preload="auto" autoplay loop controls width="500" height="300">
+                                    <source src='.$media.' type='.$typeMime.'>
+                                </video>';
+                            }
+    
+                            $view = $infos[0]['view_post'];
+                            $view += 1;
+    
+                            try {
+                                $verif = $database->prepare("UPDATE `post` SET view_post = :view WHERE url_post = :url");
+                                $verif->execute(array(':view'=>$view, ':url'=>$media));
+                                
+                            }
+                            catch(Exception $e) {
+                                echo 'Erreur : '.$e->getMessage().'</br>';
+                                echo 'Numéro : '.$e->getCode();
+                                exit();
+                            }
+    
                             echo 
-                            "<img src=".$media." width='500' height='auto'/>";
+                            '<section>
+                                <h2 id="title">'.$infos[0]['title'].'</h2>
+                                <p id="description">'.$infos[0]['description'].'</p>
+                                <p id="vues">'. $view. 'Vues</p>
+                            </section>';
                         }
-                        // Si dans le typeMime il y a 'video' alors
-                        if (isset($typeMime) && strpos($typeMime, 'video') !== false) {
-                            echo 
-                            '<video preload="auto" autoplay loop controls width="500">
-                                <source src='.$media.' type='.$typeMime.'>
-                            </video>';
-                        }
-
-                        $view = $infos[0]['view_post'];
-                        $view += 1;
-
-                        try {
-                            $verif = $database->prepare("UPDATE `post` SET view_post = :view WHERE url_post = :url");
-                            $verif->execute(array(':view'=>$view, ':url'=>$media));
-                            
-                        }
-                        catch(Exception $e) {
-                            echo 'Erreur : '.$e->getMessage().'</br>';
-                            echo 'Numéro : '.$e->getCode();
-                            exit();
-                        }
-
-                        echo 
-                        '<section>
-                            <h2 id="title">'.$infos[0]['title'].'</h2>
-                            <p id="description">'.$infos[0]['description'].'</p>
-                            <p id="vues">'. $view. 'Vues</p>
-                        </section>';
+                        else {
+                            echo 'Le media n\'existe plus.';
+                        } 
                     }
                     else {
-                        echo 'Le media n\'existe plus.';
-                    } 
+                        header("Location: ./vue_accueil.php");
+                    }
+
+                    
                 ?> 
             </main>
         </div>

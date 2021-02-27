@@ -31,7 +31,7 @@ if ($_SESSION['user']['id_users'] !== $infos[0]['id_users']) {
 
 try {
     $verif = $database->prepare("UPDATE `post` SET status_post = :status WHERE url_post = :url");
-    $verif->execute(array(':status'=> 'deleted', ':url'=>$media));
+    $verif->execute(array(':status'=> 'deleted', ':url'=>$url));
     
 }
 catch(Exception $e) {

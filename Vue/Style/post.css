@@ -224,11 +224,26 @@ main {
     margin: 5px;
 }
 
+
+
+
+
+#fichierImporte{
+    padding:5px;
+    background-color: rgb(29, 125, 216);
+    color:  white;
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px grey;
+    font-weight: bold;
+}
+
 #titreVideo {
     border: white solid 1px;
     border-radius: 10px;
     margin-top: 15px;
     padding: 5px;
+    text-align: center;
 }
 
 #descriptionVideo {
@@ -236,12 +251,16 @@ main {
     border-radius: 10px;
     margin-top: 15px;
     padding: 5px;
+    text-align: center;
 }
+
+
 
 #validPost {
     padding: 0px 15px;
     width: 10px;
     border: white 1px;
+   
 }
 
 #containValidPost {

@@ -207,20 +207,23 @@ main {
     max-width: 65%;
 } 
 
-.supprimer {
+.suppr{
     padding:5px;
-    background-color: rgb(216, 62, 62);
-    color: white;
+    background-color: white;
+    color:  rgb(216, 62, 62);
     box-sizing: border-box;
     border-radius: 20px;
     box-shadow: 2px 2px 2px grey;
+    cursor: pointer;
+    font-weight: bold;
+}
+ .suppr:hover{
+    background-color: rgb(216, 62, 62);
+    color:  white;
+
 }
 
-.suppr{
-    display: flex;
-    flex-direction: row-reverse;
 
-}
 
 #medias {  
     display: flex;
