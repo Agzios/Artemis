@@ -30,11 +30,11 @@ if (isset($_FILES)) {
         $_SESSION['error'] = "Le fichier est trop volumineux.<br/>";
     }
 }
-if (!isset($title) OR !preg_match("/([\w ]+)([!? .,=]+)?{3,}/", $title)) {
+if (!isset($title) OR !preg_match("/[\w\s]{3,}/", $title)) {
     $_SESSION['error'] .= "Le titre doit contenir minimum 3 caractères alphanumériques uniquement.<br/>";
 }
 if (isset($description)) {
-    if (!preg_match("/([\w ]+)([!? .,=]+)?{0,255}/", $description)) {
+    if (!preg_match("/[\w\s]{0,255}/", $description)) {
         $_SESSION['error'] .= "La description doit contenir au maximum 255 caractères alphanumériques uniquement.<br/>";
     }
 }
