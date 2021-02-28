@@ -12,6 +12,7 @@
 h1{
     font-family: algerian;
     margin-left: -15px;
+  
 }
 
 .AllButFooter {
@@ -69,6 +70,14 @@ header {
 #logoArtemis {
     width: 100%;
     height: 100%;
+    display: inline-block;
+    animation: rotate 1s linear normal;
+}
+
+@keyframes rotate {
+        to {
+          transform: rotatey(360deg);
+        }
 }
 
 /*** Search Bar ***/
@@ -139,10 +148,17 @@ header {
 }
 
 #userAvatar {
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    min-width: 5px;
+    min-height: 5px;
+    transition: transform 2s;
 }
 
+#userAvatar:hover {
+   
+    transform: scale(2);
+}
 /** */
 /************ Menu ************/
 /** */
@@ -167,6 +183,19 @@ h1:hover {
 }
 
 /*** Accueil Icon ***/
+
+#iconAccueil{
+    width: 30px;
+    height: 30px;
+    transition: transform 2s;
+}
+
+#iconAccueil:hover {
+   
+    transform: scale(2);
+  }
+
+
 #containAccueil {
     margin-top: 10px;
     margin-left: 30px;
@@ -181,8 +210,15 @@ h1:hover {
 }
 
 #iconTendance {
-    width: 30px;
+    width: 30px;    
+    height: 30px;
+    transition: transform 2s;
 }
+
+#iconTendance:hover {
+ 
+    transform: scale(2);
+  }
 
 /*** Post Icon ***/
 #containPost {
@@ -192,8 +228,16 @@ h1:hover {
 }
 
 #iconPost {
-    width: 30px;
+    width: 30px; 
+    height: 30px;
+    transition: transform 2s;
 }
+
+#iconPost:hover {
+   
+    transform: scale(2);
+  }
+
 
 /** */
 /************ Main ************/

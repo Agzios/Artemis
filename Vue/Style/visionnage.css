@@ -226,6 +226,13 @@ section {
     padding: 5px;
 }
 
+
+section p{
+    width:300px;
+    height: 30px;
+    overflow: hidden;
+}
+
 /** */
 /************ Footer ************/
 /** */
