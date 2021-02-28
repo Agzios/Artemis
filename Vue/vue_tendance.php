@@ -120,7 +120,7 @@
                             '<section>
                             <a href="./vue_visionnage?url='.$data[$i]["url_post"].'">
                             <figure>
-                                <img src='.$data[$i]["url_post"].' width="200" height="auto"/>
+                                <img src='.$data[$i]["url_post"].' width="300" height="150"/>
                                 <a href="./vue_delete?url='.$data[$i]["url_post"].'"/>
                             </figure>
                             </a>
@@ -132,7 +132,7 @@
                         echo 
                             '<section>
                                 <a href="./vue_visionnage?url='.$data[$i]["url_post"].'">
-                                <video width="200" height="auto">
+                                <video width="300" height="150">
                                     <source src='.$data[$i]['url_post'].' type='.$typeMime.'>
                                 </video>
                                 </a>

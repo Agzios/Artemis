@@ -136,13 +136,13 @@
                     <section>
                         <form action="../Model/model_params_logUser.php" method="POST">
                             <label for="curPassword">Mot de Passe actuel:</label>
-                            <input type="text" id="curPassword" name="curPassword" placeholder="mot de passe actuel"/>
+                            <input type="password" id="curPassword" name="curPassword" placeholder="mot de passe actuel"/>
                             <br>
                             <label for="password">Mot de Passe:</label>
-                            <input type="text" id="password" name="password" placeholder="nouveau mot de passe"/>
+                            <input type="password" id="password" name="password" placeholder="nouveau mot de passe"/>
                             <br>
                             <label for="verifpassword">Verification Mot de Passe:</label>
-                            <input id="verifpassword" type="text" name="verifpassword" placeholder="verification mot de passe"/>
+                            <input id="verifpassword" type="password" name="verifpassword" placeholder="verification mot de passe"/>
                             <br>
                             <input id="modifButton" type="submit" name="Modifier">
                         </form>

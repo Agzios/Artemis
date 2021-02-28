@@ -118,20 +118,20 @@
                         if (isset($typeMime) && strpos($typeMime, 'image') !== false) {
                             echo
                             '<section>
-                            <a href="./vue_visionnage?url='.$data[$i]["url_post"].'">
-                            <figure>
-                                <img src='.$data[$i]["url_post"].' width="200" height="auto"/>
-                            </figure>
-                            </a>
-                                <p class="title"><strong>'.$data[$i]["title"].'</strong></p>
-                                <p class="name">'.$data[$i]["pseudo"].'</p>
+                                <a href="./vue_visionnage.php?url='.$data[$i]["url_post"].'">
+                                <figure>
+                                    <img src='.$data[$i]["url_post"].' width="300" height="150"/>
+                                </figure>
+                                </a>
+                                    <p class="title"><strong>'.$data[$i]["title"].'</strong></p>
+                                    <p class="name">'.$data[$i]["pseudo"].'</p>
                             </section>';
                         }
                         if (isset($typeMime) && strpos($typeMime, 'video') !== false) {
                         echo 
                             '<section>
-                                <a href="./vue_visionnage?url='.$data[$i]["url_post"].'">
-                                <video width="200" height="auto">
+                                <a href="./vue_visionnage.php?url='.$data[$i]["url_post"].'">
+                                <video width="300" height="150">
                                     <source src='.$data[$i]['url_post'].' type='.$typeMime.'>
                                 </video>
                                 </a>
