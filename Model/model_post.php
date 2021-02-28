@@ -69,6 +69,7 @@ if (($fileextension !== "mp4") && ($fileextension !== "mpeg") && ($fileextension
 }
 if (isset($_SESSION['error'])) {
     header('Location: ../Vue/vue_post.php');
+    exit();
 }
         
 if (($fileextension == "mp4") || ($fileextension == "mpeg") || ($fileextension == "webm") || ($fileextension == "ogv") || ($fileextension == "ogg") || ($fileextension == "jpg") || ($fileextension == "jpeg") || ($fileextension == "png") || ($fileextension == "svg")) {

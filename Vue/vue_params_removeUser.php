@@ -144,7 +144,7 @@
                             <input id="email" type="text" name="email" placeholder="Email"/>
                             <br>
                             <label for="password">Mot de Passe:</label>
-                            <input type="text" id="password" name="password" placeholder="Mot de passe"/>
+                            <input type="password" id="password" name="password" placeholder="Mot de passe"/>
                             <br>
                             <input id="modifButton" type="submit" name="suppression" value="Supprimer">
                         </form>
