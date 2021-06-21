@@ -118,7 +118,7 @@
                         if (isset($typeMime) && strpos($typeMime, 'image') !== false) {
                             echo
                             '<section>
-                            <a href="./vue_visionnage?url='.$data[$i]["url_post"].'">
+                            <a href="./vue_visionnage.php?url='.$data[$i]["url_post"].'">
                             <figure>
                                 <img src='.$data[$i]["url_post"].' width="300" height="150"/>
                                 <a href="./vue_delete?url='.$data[$i]["url_post"].'"/>
@@ -131,7 +131,7 @@
                         if (isset($typeMime) && strpos($typeMime, 'video') !== false) {
                         echo 
                             '<section>
-                                <a href="./vue_visionnage?url='.$data[$i]["url_post"].'">
+                                <a href="./vue_visionnage.php?url='.$data[$i]["url_post"].'">
                                 <video width="300" height="150">
                                     <source src='.$data[$i]['url_post'].' type='.$typeMime.'>
                                 </video>
